@@ -1,5 +1,5 @@
 // On submit of the form, the slogan is injected into App.js state using a callback state handler passed down as a prop
-// Also tracks state for the current instruciton being typed. OnChange of the input, this state changes
+// Also tracks state for the current instruction being typed. OnChange of the input, this state changes
 
 import { useState } from 'react';
 

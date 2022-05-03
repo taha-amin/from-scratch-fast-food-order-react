@@ -4,22 +4,22 @@
 import './App.css';
 import { useState } from 'react';
 
-import DrinkDropdown from './DrinkDropdown';
-import FoodDropdown from './FoodDropDown';
-import SideDropdown from './SideDropdown';
+import DrinkDropdown from './DrinkDropdown.js';
+import FoodDropdown from './FoodDropdown.js';
+import SideDropdown from './SideDropdown.js';
 
-import InstructionList from './InstructionsList';
-import InstructionsForm from './InstructionsForm';
+import InstructionList from './InstructionsList.js';
+import InstructionsForm from './InstructionsForm.js';
 
-import OrderNameInput from './OrderNameInput';
-import OrderImages from './OrderImages';
+import OrderNameInput from './OrderNameInput.js';
+import OrderImages from './OrderImages.js';
 
 function App() {
   const [drinkId, setDrinkId] = useState(1);
   const [foodId, setFoodId] = useState(1);
   const [sideId, setSideId] = useState(1);
 
-  const [orderName, setOrderName] = useState('taste so good make you wanna smack yo mama');
+  const [orderName, setOrderName] = useState('');
 
   const [instructions, setInstructions] = useState(['']);
 
@@ -31,10 +31,12 @@ function App() {
       <div className="bottom">
         <OrderNameInput setOrderName={setOrderName} />
         <section className="dropdowns">
-          <foodId setFoodId={setFoodId} />
-          <drinkId setDrinkId={setDrinkId} />
-          <sideId setSideId={setSideId} />
+          <FoodDropdown setFoodId={setFoodId} />
+          <SideDropdown setSideId={setSideId} />
+          <DrinkDropdown setDrinkId={setDrinkId} />
         </section>
+
+        <InstructionsForm setInstructions={setInstructions} instructions={instructions} />
 
         <InstructionList instructions={instructions} />
       </div>
