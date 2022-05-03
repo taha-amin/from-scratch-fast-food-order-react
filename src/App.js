@@ -22,6 +22,24 @@ function App() {
   const [orderName, setOrderName] = useState('taste so good make you wanna smack yo mama');
 
   const [instructions, setInstructions] = useState(['']);
+
+  return (
+    <div className="App">
+      <OrderImages drinkId={drinkId} foodId={foodId} sideId={sideId} />
+      <h1>Have you tried the {orderName}?</h1>
+
+      <div className="bottom">
+        <OrderNameInput setOrderName={setOrderName} />
+        <section className="dropdowns">
+          <foodId setFoodId={setFoodId} />
+          <drinkId setDrinkId={setDrinkId} />
+          <sideId setSideId={setSideId} />
+        </section>
+
+        <InstructionList instructions={instructions} />
+      </div>
+    </div>
+  );
 }
 
 export default App;
